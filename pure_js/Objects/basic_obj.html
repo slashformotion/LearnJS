@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        basic_obj
+    </title>
+
+
+    <script>
+
+        // Déclaration d'un Objet
+        var Eleve = function (nom, notes) {
+            this.nom = nom
+            if (notes != undefined) {
+                this.notes = notes
+            }
+        }
+
+        Eleve.prototype.moyenne = function () {
+            if (this.notes === undefined || this.notes.length === 0) {
+                return NaN
+            };
+            var somme = 0
+            for (let i = 0; i < this.notes.length; i++) {
+                somme += this.notes[i]
+            };
+            return somme / this.notes.length
+        }
+
+        Eleve.prototype.toString = function () {
+            if (this.notes === undefined) {
+                console.log(this.nom);
+            } else {
+                console.log(this.nom + " has grades : " + this.notes);
+            }
+        }
+
+
+        // déclaration d'une instance d'objet
+        var marc = new Eleve('marc', [1,2,3,8,545,46,451,54])
+    </script>
+
+
+</head>
+<body>
+    
+</body>
+</html>
